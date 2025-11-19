@@ -193,7 +193,7 @@ impl SileroVAD {
         self.last_batch_size = batch_size;
 
         // Return speech probability
-        let output_tensor = outputs[0].try_extract_tensor::<f32>()?;
+        let (_, output_tensor) = outputs[0].try_extract_tensor::<f32>()?;
         Ok(Array1::from_vec(output_tensor.iter().cloned().collect::<Vec<f32>>()))
     }
 
@@ -262,7 +262,7 @@ impl SileroVAD {
         self.last_batch_size = batch_size;
 
         // Return speech probabilities
-        let output_tensor = outputs[0].try_extract_tensor::<f32>()?;
+        let (_, output_tensor) = outputs[0].try_extract_tensor::<f32>()?;
         Ok(Array1::from_vec(output_tensor.iter().cloned().collect::<Vec<f32>>()))
     }
 } 
